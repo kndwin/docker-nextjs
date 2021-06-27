@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t kndwin/docker-nextjs -f Dockerfile.dev .
+
+scripts: 
+  - docker run kndwin/docker-nextjs npm run test:ci -- -u
